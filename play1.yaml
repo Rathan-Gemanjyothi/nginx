@@ -3,5 +3,5 @@
   hosts: slave1
   become: true
   tasks:
-   - name: install apache in slave1
-     apt: name=apache2 state=latest
+   - name: install nginx in slave1
+     apt: name=nginx state=latest
