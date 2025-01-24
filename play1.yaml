@@ -1,16 +1,14 @@
 ---
 - name: task for slave1
-  hosts: master
+  hosts: all
   become: true
   tasks:
    - name: install nginx in slave1
      apt: name=nginx state=latest
-          - name: Start Apache server
-      service:
-        name: httpd
-        state: started
-        enabled: True
-    - name: Deploy static website
-      copy:
-        src: index.html
-        dest: /var/www/html/
+   - name: Start Apache server
+     service:
+     - name: httpd
+       state: started
+       enabled: True
+   - name: Deploy static website
+     copy: src=index.html dest=/var/www/html/
